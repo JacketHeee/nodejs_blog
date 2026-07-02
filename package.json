@@ -24,15 +24,11 @@
     "start": "nodemon --inspect src/index.js",
     "format": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "sass -w src/resources/scss:src/public/css"
+    "watch": "sass -w src/resources/scss:src/public/css",
+    "prepare": "husky"
   },
   "lint-staged": {
     "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "dependencies": {
     "express": "^5.2.1",
