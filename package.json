@@ -22,16 +22,28 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
+    "format": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "sass -w src/resources/scss:src/public/css"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 2 --write"
+  },
+  "husky": {
+    "hook": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "express": "^5.2.1",
     "express-handlebars": "^9.0.1"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "morgan": "^1.11.0",
     "nodemon": "^3.1.14",
+    "prettier": "^3.9.4",
     "sass": "^1.101.0"
   }
 }
